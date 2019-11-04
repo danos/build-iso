@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# generate old-style package manifest (needed by image install)
+mkdir -p live
+dpkg --list --root=../chroot > live/packages.txt
+
+# generate new packages manifest with GIT metadata
+chroot ../chroot dpkg-query -W -f='${binary:Package}\t${Version}\t${Vyatta-Git-Id}\t${Vyatta-Git-Url}${Vyatta-Git-Repo}\n' > ../${LIVE_IMAGE_NAME}-${LB_ARCHITECTURES}.packages
+
+# generate .treeinfo file used by virt-install
+[ -r ../chroot/etc/os-release.vyatta ] && . ../chroot/etc/os-release.vyatta
+
+cat > .treeinfo <<EOF
+[general]
+name = ${PRETTY_NAME:-Brocade Vyatta Network OS}
+family = Brocade Vyatta Network OS
+arch = x86_64
+
+[images-x86_64]
+kernel = live/vmlinuz
+initrd = live/initrd.img
+EOF

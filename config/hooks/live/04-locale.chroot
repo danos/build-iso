@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo I: Set default locale
+cat <<EOF >etc/default/locale
+LANG=en_US.UTF-8
+LC_ALL=C
+EOF
+
+echo I: Uncomment en_US in /etc/locale.gen
+sed -i "s/^# en_US/en_US/" /etc/locale.gen
+
+echo I: Regenerate locales
+/usr/sbin/locale-gen

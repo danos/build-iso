@@ -1,0 +1,14 @@
+#!/bin/sh
+
+
+if apt-cache show yang-utils; then
+	if ! yangc /usr/share/configd/yang; then
+		echo "E: yangc failed. Don't produce unusable ISOs. Aborting build."
+		exit 1
+	fi
+fi
+
+# Local Variables:
+# mode: shell-script
+# sh-indentation: 4
+# End:

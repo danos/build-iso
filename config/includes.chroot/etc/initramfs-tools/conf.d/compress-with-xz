@@ -1,0 +1,5 @@
+#
+# COMPRESS: [ gzip | bzip2 | lzma | lzop | xz ]
+#
+
+COMPRESS=xz

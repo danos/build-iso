@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# With live-config 5.0~a5 the configuration directory name changed
+#
+
+echo "I: running hook $(basename ${0})"
+
+VERS=$(chroot ../chroot dpkg-query --showformat='${Version}\n' --show live-config 2>/dev/null)
+
+if dpkg --compare-versions "${VERS}" '>=' 5.0~a5 ; then
+    mv --no-target-directory live/config live/config.conf.d
+fi

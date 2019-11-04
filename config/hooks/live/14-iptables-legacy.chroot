@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+if [ -x /usr/sbin/ip6tables-legacy ]
+then
+    update-alternatives --quiet --set ip6tables /usr/sbin/ip6tables-legacy
+fi
+if [ -x /usr/sbin/iptables-legacy ]
+then
+    update-alternatives --quiet --set iptables /usr/sbin/iptables-legacy
+fi

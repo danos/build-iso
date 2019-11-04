@@ -1,0 +1,28 @@
+#!/bin/sh
+
+if [ ! -f /etc/os-release.vyatta ] ; then
+    exit 0
+fi
+
+echo "I: running hook $(basename ${0})"
+
+# we should get this from vyatta-version
+ln -fs /etc/os-release.vyatta /etc/os-release
+
+[ -f /live-build/config/environment.chroot_hooks ] && . /live-build/config/environment.chroot_hooks
+
+if [ -n "${VARIANT}" ]; then
+    cat <<EOF >> /etc/os-release
+VARIANT="${VARIANT}"
+VARIANT_ID="${VARIANT_ID}"
+EOF
+fi
+
+if [ -n "${BUILD_TIME}" ] ; then
+    BUILD_ID="$(date +%Y%m%dT%H%M -d @$BUILD_TIME)-${RECIPEFILE}"
+fi
+
+cat <<EOF >> /etc/os-release
+BUILD_ID="${BUILD_ID}"
+VYATTA_PROJECT_ID="${PROJECT_ID}"
+EOF

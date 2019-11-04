@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# partially copied from binary_syslinux
+_FLAVOURS="$(echo ${LB_LINUX_FLAVOURS:-$(ls live/vmlinuz-*)} | wc -w)"
+case "${_FLAVOURS}" in
+    1)
+        mv live/vmlinuz-* live/vmlinuz
+        mv live/initrd.img-* live/initrd.img
+	;;
+    *)
+	for _FLAVOUR in ${LB_LINUX_FLAVOURS}
+        do
+	    mv live/vmlinuz-*-${_FLAVOUR} live/vmlinuz${_FLAVOUR}
+            mv live/initrd.img-*-${_FLAVOUR} live/initrd${_FLAVOUR}.img
+	done
+	;;
+esac

@@ -1,0 +1,22 @@
+0fPREREQUISITES FOR INSTALLING vRouter07                                           09F207
+
+You must have at least 512 megabytes of RAM to use this installer.  
+Brocade vRouter recommends at least 2 gigabytes of RAM for basic system usage.
+You will need more RAM if you plan on working with large routing tables or 
+advanced functionality.
+
+You should have space on your hard disk to create a new disk partition
+of at least 2 gigabytes to install the base system. 
+You'll need more disk space to install additional system images, 
+and to provide expansion for future upgrades.
+
+See the vRouter Quick Start Guide, Command Reference, and Configuration for more
+information. 
+All of these documents are available at the Brocade web site,
+0fhttp://www.brocade.com/support07
+http://www.brocade.com/support .
+
+Welcome to the vRouter community!
+
+
+Press F1control and F then 1 for the help index, or ENTER to 

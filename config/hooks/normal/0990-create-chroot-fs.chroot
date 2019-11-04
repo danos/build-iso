@@ -1,0 +1,95 @@
+#!/bin/sh
+# shellcheck disable=SC2039
+
+set -e
+
+LIVE_BUILD_DIR=/live-build
+LB_CONFIG_BUILD="${LIVE_BUILD_DIR}/config/build"
+LB_CONFIG_DIR="${LIVE_BUILD_DIR}/config"
+
+USER_ISOLATION_PKG=vyatta-system-login-user-isolation-v1-yang
+
+# shellcheck source=/dev/null
+[ -f ${LB_CONFIG_DIR}/common ] && . ${LB_CONFIG_DIR}/common
+
+get_lb_cfg()
+{
+    grep "^${1}:" ${LB_CONFIG_BUILD} | cut -d':' -f2- | sed -e 's|^ ||' -e 's| $||'
+}
+
+# Create the sandbox chroot only if the we have the user-isolation package.
+check_user_isolation()
+{
+	VER=$(dpkg-query --show -f='${Version}' ${USER_ISOLATION_PKG})
+	[ -n "${VER}" ] || return 1
+}
+
+# Install debootstrap - at this stage we still should have the sources.list pointing
+# to LB repos
+delete_bootstrap='no'
+hook_debootstrap()
+{
+	if [ "${1}" = install ]; then
+		[ ! -x /usr/sbin/debootstrap ] || return 0
+		case "${LB_APT}" in
+			apt|apt-get)
+				# shellcheck disable=SC2086
+				apt-get ${APT_OPTIONS} install debootstrap
+				;;
+			aptitude)
+				# shellcheck disable=SC2086
+				aptitude ${APTITUDE_OPTIONS} install debootstrap
+				;;
+		esac
+		delete_bootstrap=yes
+	else
+		[ "${delete_bootstrap}" = 'yes' ] || return 0
+		apt-get -y purge debootstrap 
+	fi
+}
+
+cli_sandbox()
+{
+    # Get Architectures for the bootstrap.
+    local ARCH
+    local DIST
+    local MIRROR
+
+    ARCH="$(get_lb_cfg Architecture)"
+    DIST="$(get_lb_cfg Distribution)"
+    MIRROR="$(get_lb_cfg Mirror-Bootstrap)"
+    local excludes="initramfs-tools"
+
+    local R=${1}
+    local includes="${2}"
+    
+    local opts="--arch=${ARCH} --no-check-gpg --variant=minbase"
+    if [ -n "${includes}" ]; then
+	    opts="${opts} --include=${includes}"
+    fi
+    if [ -n "${excludes}" ]; then
+	    opts="${opts} --exclude=${excludes}"
+    fi
+    
+    echo "I: Creating sandbox in $R arch=$ARCH MIRROR=${MIRROR}"
+    mkdir -p config/include.chroot/cli-sandbox
+    if [ -x /usr/sbin/debootstrap ]; then
+	echo "I: bootstraping sandbox"
+	# shellcheck disable=SC2086
+       	debootstrap ${opts} "${DIST}" "${R}" "${MIRROR}"
+       	# Now clean up cli-sandbox
+       	chroot "$R" apt-get clean
+    fi
+    echo "I: End Sandbox"
+}
+
+# TBD: should take this from a package-list
+SANDBOX_ROOT=/var/lib/sandbox
+INCLUDES="vyatta-op-shell,vyatta-config-shell,vyatta-bash,bash-completion,libnss-sss,openssh-client,vyatta-netconf-agent,vcli"
+
+echo "I: Runing Hook $0"
+check_user_isolation || { echo "Skipping user isolation"; exit 0; }
+hook_debootstrap install
+cli_sandbox $SANDBOX_ROOT $INCLUDES
+hook_debootstrap uninstall
+echo "I: End Hook $0"

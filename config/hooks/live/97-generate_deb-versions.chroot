@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "I: running hook $(basename ${0})"
+
+dpkg-query --admindir=/var/lib/dpkg \
+    -W -f '${Status} ${Package} ${Version}\n' \
+    | sed -n 's/^install ok installed //p' \
+    >/opt/vyatta/etc/deb-versions.txt
+
+# Local Variables:
+# mode: shell-script
+# sh-indentation: 4
+# End:

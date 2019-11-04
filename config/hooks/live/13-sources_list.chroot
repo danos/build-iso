@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "I: running hook $(basename ${0})"
+
+# Removing chroot-only apt sources but keep repository keys installed
+for FILE in /root/config/archives/*.list.chroot
+do
+    if [ ! -e "${FILE}"  ] ; then
+	continue
+    fi
+    rm -vf "/etc/apt/sources.list.d/$(basename ${FILE} .chroot)"
+done

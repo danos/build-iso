@@ -1,0 +1,9 @@
+#
+# Essential packages that make up the vRouter system
+#
+# NOTE: Packages listed here usually are "Essential: yes" :)
+#
+base-files-vyatta
+vyatta-base-systemd
+vyatta-image-tools
+vyatta-version

@@ -1,0 +1,17 @@
+#
+# List of extra packages not required by anyone (but we still want)
+#
+htop
+iotop
+iperf
+iperf3
+iptraf-ng
+jnettop
+linux-vyatta-tools
+mtr-tiny
+netcat
+powertop
+psmisc
+sipcalc
+tcpdump
+vlan

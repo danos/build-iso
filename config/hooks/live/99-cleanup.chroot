@@ -1,0 +1,16 @@
+#!/bin/sh
+
+echo "I: running hook $(basename ${0})"
+
+# remove backup files for ISO
+rm -vf /etc/*.vyatta-save chroot/etc/*/*.vyatta-save
+
+## Clean up ssh keys.  System should regen keys locally
+rm -vf /etc/ssh/ssh_host*
+
+rm -vrf /root/{.rnd,.gnupg,.debtags}
+
+# Local Variables:
+# mode: shell-script
+# sh-indentation: 4
+# End:

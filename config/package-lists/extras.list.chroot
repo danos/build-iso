@@ -1,0 +1,12 @@
+#
+# List of extra packages not required by anyone (but we still want)
+#
+apt-rdepends
+installation-report
+lftp
+libjson-xs-perl
+man-db
+netplug
+screen
+telnet
+wajig

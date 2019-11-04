@@ -1,0 +1,19 @@
+#!/bin/sh
+
+[ -f /live-build/config/environment.chroot_hooks ] && . /live-build/config/environment.chroot_hooks
+
+[ -z "${BUILD_TIME}" ] && exit 0
+
+echo "I: running hook $(basename ${0})"
+
+# Create build-on file used by "show version"
+cat << EOF > /opt/vyatta/etc/build.txt
+Built on:     $( date -u -d @$BUILD_TIME )
+EOF
+
+# Updating motd and version file
+cur_time=$(date +%m%d%H%M -d @$BUILD_TIME)
+for file in /opt/vyatta/etc/motd /opt/vyatta/etc/version
+do
+    sed -i -e "s/00000000/$cur_time/g" $file
+done

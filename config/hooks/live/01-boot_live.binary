@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# This is a hack to move the binaries installed by binary_linux-image back to
+# the binary/live directory when using the old live-initramfs as a replacement
+# for live-boot & live-config.
+
+case "${LB_INITRAMFS}" in
+    live-initramfs)
+	mv boot/* live/
+	rmdir boot
+	;;
+    *)
+	;;
+esac

@@ -1,0 +1,20 @@
+# dependencies from live-boot & live-config
+sudo
+user-setup
+# live-tools is disabled to allow update-initramfs
+eject
+file
+# dependencies of our live-initramfs
+libacl1
+libattr1
+libblkid1
+libuuid1
+# some basic dependencies
+dbus
+live-boot
+live-boot-initramfs-tools
+live-boot-vyatta
+live-config
+live-config-systemd
+locales
+tftp

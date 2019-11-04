@@ -1,0 +1,91 @@
+#!/bin/sh
+#
+# This is the live-build 3.x auto/config
+#
+
+set -e
+
+: ${TOPDIR:=/usr/src/packages}
+
+get_prjconf_parameter()
+{
+    PARAM=$1
+    BUILDCONFIG="/.build/build.dist"
+
+    if [ ! -e $BUILDCONFIG ] && [ -d $TOPDIR/SOURCES ]
+    then
+        BUILDCONFIG=$( ls -1 $TOPDIR/SOURCES/_buildconfig* | head -n1 )
+    fi
+
+    if [ -e $BUILDCONFIG ]
+    then
+        grep -E "^%$PARAM " $BUILDCONFIG | sed "s/^%$PARAM //g" | tail -n1
+    else
+        echo "vyatta"
+    fi
+}
+
+# default to the parent directory name
+: ${RECIPEFILE:="$(basename $(pwd))"}
+# for reproducible builds
+if [ ! -z "$SOURCE_DATE_EPOCH" ]; then
+    BUILD_TIME="$SOURCE_DATE_EPOCH"
+else
+    BUILD_TIME="$(date +%s)"
+fi
+
+BUILDSTAMP="$(date +"%Y%m%dT%H%M" -d @$BUILD_TIME)"
+
+PROJECT_ID=$(get_prjconf_parameter _project)
+
+# create environment file read by chroot hooks
+cat <<EOF >> config/environment.chroot_hooks
+BUILD_TIME="${BUILD_TIME}"
+PROJECT_ID="${PROJECT_ID}"
+RECIPEFILE="${RECIPEFILE}"
+EOF
+
+IMAGE_NAME="${RECIPEFILE%.livebuild}_${BUILDSTAMP}"
+
+LINUX_FLAVOURS=$(grep -s -h linux-image config/package-lists/*.chroot | sed "s/linux-image-//g")
+
+if [ -z "$LINUX_FLAVOURS" ]; then
+    LINUX_FLAVOURS="vyatta"
+fi
+
+ISO_APPLICATION=$(get_prjconf_parameter _vyatta_pretty_name)
+ISO_PUBLISHER=$(get_prjconf_parameter _vyatta_name)
+ISO_VOLUME=$(get_prjconf_parameter _vyatta_version_id)
+
+lb config noauto \
+    --apt apt \
+    --apt-indices false \
+    --apt-options "--yes -o Acquire::Check-Valid-Until=false" \
+    --apt-recommends false \
+    --apt-source-archives false \
+    --backports false \
+    --build-with-chroot true \
+    --cache-indices false \
+    --checksums "md5 sha256" \
+    --chroot-filesystem squashfs \
+    --debconf-frontend noninteractive \
+    --debian-installer false \
+    --distribution stable \
+    --firmware-binary false \
+    --firmware-chroot false \
+    --ignore-system-defaults \
+    --image-name "${IMAGE_NAME}" \
+    --initramfs live-boot \
+    --iso-application "${ISO_APPLICATION}" \
+    --iso-publisher "${ISO_PUBLISHER}" \
+    --iso-volume "${ISO_VOLUME}" \
+    --linux-flavours "${LINUX_FLAVOURS}" \
+    --mode debian \
+    --parent-distribution stable \
+    --security true \
+    --source false \
+    --updates false \
+    --verbose \
+    --onie true \
+    --onie-kernel-cmdline "systemd.show_status=1 net.ifnames=1 vyatta-autoinstall" \
+    "${@}"
