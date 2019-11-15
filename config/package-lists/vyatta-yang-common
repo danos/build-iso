@@ -1,8 +1,10 @@
 vyatta-bridge-static-fdb-v1-yang
+vyatta-cpp-rate-limiter-v1-yang
 vyatta-dhcp-client-v1-yang
 vyatta-dhcpv6-client-v1-yang
 vyatta-interfaces-backplane-v1-yang
 vyatta-interfaces-bridge-v1-yang
+vyatta-interfaces-dataplane-deviation-ufi-apollo-ncp1-1-v1-yang
 vyatta-interfaces-dataplane-switch-v1-yang
 vyatta-interfaces-dataplane-transceiver-v1-yang
 vyatta-interfaces-dataplane-unnumbered-v1-yang
@@ -70,6 +72,7 @@ vyatta-op-show-interfaces-system-v1-yang
 vyatta-op-show-interfaces-tunnel-v1-yang
 vyatta-op-show-interfaces-vti-v1-yang
 vyatta-op-show-log-image-v1-yang
+vyatta-op-show-ptp-v1-yang
 vyatta-op-show-raid-v1-yang
 vyatta-op-show-switch-spanning-tree-v1-yang
 vyatta-op-show-switch-v1-yang
@@ -100,9 +103,14 @@ vyatta-service-nat-nptv6-v1-yang
 vyatta-service-nat-pool-v1-yang
 vyatta-service-nat-v1-yang
 vyatta-service-nat64-v1-yang
+vyatta-service-pcp-v1-yang
+vyatta-service-ptp-broadptp-v1-yang
+vyatta-service-ptp-notification-v1-yang
+vyatta-service-ptp-v1-yang
 vyatta-service-twamp-v1-yang
 vyatta-system-dataplane-v1-yang
 vyatta-system-login-sssd-v1-yang
 vyatta-system-session-v1-yang
 vyatta-system-tacplus-v1-yang
 vyatta-xconnect-v1-yang
+vyatta-zone-based-firewall-feature

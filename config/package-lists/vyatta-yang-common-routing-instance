@@ -13,6 +13,7 @@ vyatta-service-dhcpv6-relay-routing-instance-v1-yang
 vyatta-service-dhcpv6-server-routing-instance-v1-yang
 vyatta-service-dns-routing-instance-v1-yang
 vyatta-service-netconf-routing-instance-v1-yang
+vyatta-service-pcp-routing-instance-v1-yang
 vyatta-service-snmp-routing-instance-v1-yang
 vyatta-service-ssh-routing-instance-v1-yang
 vyatta-service-telnet-routing-instance-v1-yang

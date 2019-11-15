@@ -1,6 +1,5 @@
 deb-vci-helper
 golang-xpath-plugins
-python-vyatta-cfgclient
 python3-vyatta-cfgclient
 ruby-vyatta-cfgclient
 vyatta-cfg

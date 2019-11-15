@@ -1,10 +1,12 @@
 configd-v1-yang
+ephemerad-v1-yang
+notifyd-v1-yang
 vyatta-image-v1-yang
 vyatta-op-config-v1-yang
 vyatta-op-delete-v1-yang
+vyatta-op-generate-syslog-v1-yang
 vyatta-op-reset-system-v1-yang
 vyatta-op-reset-v1-yang
-vyatta-op-show-log-v1-yang
 vyatta-op-show-system-v1-yang
 vyatta-security-ssh-client-v1-yang
 vyatta-security-ssh-known-hosts-v1-yang
