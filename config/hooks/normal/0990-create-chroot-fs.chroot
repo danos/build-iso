@@ -48,6 +48,67 @@ hook_debootstrap()
 	fi
 }
 
+# Sets up additional repos for the sandbox if needed.
+# We rely on existence of 
+need_additional_repos()
+{
+    n=$(ls "${LB_CONFIG_DIR}"/archives/*.list.chroot 2>/dev/null | wc -l)
+    [ $n -gt 0 ] && return 0
+    return 1
+}
+
+# creates a script to run in sandbox chroot after debootstrap
+fixup_sandbox()
+{
+    local R="${1}"
+    local archive_dir="${2}"
+    shift 2
+
+    cp -a "${archive_dir}" "${R}/archives"
+
+    cat <<!EOF > "${R}/sandbox-fixup"
+#!/bin/sh
+set -x
+install_addon()
+{
+    [ -d /etc/apt/sources.list.d ] || mkdir -p /etc/apt/sources.list.d
+
+    local sources="\$(ls /archives/*.list.chroot 2>/dev/null)"
+    local keys="\$(ls /archives/*.key.chroot 2>/dev/null)"
+
+    for x in \${sources}; do
+        fname=\$(basename \$x)
+        cp \$x /etc/apt/sources.list.d/\${fname%.chroot}
+    done
+    for x in \${keys}; do
+        apt-key add \$x
+    done
+    apt-get update
+    apt-get -y install "\${@}"
+    rm -rf "/archives"
+    for x in \${soruces}; do
+        fname=\$(basename $x)
+        rm -f /etc/apt/sources.list.d/\${fname#.chroot}
+    done
+    return 0
+}
+
+if [ -n "${1}" ]; then
+    OIFS="\$IFS"
+    IFS=,
+    set -a \${1}
+    IFS="\${OIFS}"
+    install_addon "\${@}"
+fi
+
+# Now clean up cli-sandbox
+apt-get clean
+!EOF
+    chmod a+x "${R}/sandbox-fixup"
+    chroot ${R} /sandbox-fixup "$@"
+    rm -f /sandbox-fixup
+}
+
 cli_sandbox()
 {
     # Get Architectures for the bootstrap.
@@ -62,34 +123,44 @@ cli_sandbox()
 
     local R=${1}
     local includes="${2}"
+    local addons="${3}"
+
+    if need_additional_repos; then
+       includes="${includes},gnupg"
+    else
+        includes="${includes},${addons}"
+        addons=""
+    fi
     
     local opts="--arch=${ARCH} --no-check-gpg --variant=minbase"
     if [ -n "${includes}" ]; then
-	    opts="${opts} --include=${includes}"
+        opts="${opts} --include=${includes}"
     fi
     if [ -n "${excludes}" ]; then
-	    opts="${opts} --exclude=${excludes}"
+        opts="${opts} --exclude=${excludes}"
     fi
     
     echo "I: Creating sandbox in $R arch=$ARCH MIRROR=${MIRROR}"
     mkdir -p config/include.chroot/cli-sandbox
     if [ -x /usr/sbin/debootstrap ]; then
-	echo "I: bootstraping sandbox"
-	# shellcheck disable=SC2086
-       	debootstrap ${opts} "${DIST}" "${R}" "${MIRROR}"
-       	# Now clean up cli-sandbox
-       	chroot "$R" apt-get clean
+        echo "I: bootstraping sandbox"
+        # shellcheck disable=SC2086
+        debootstrap ${opts} "${DIST}" "${R}" "${MIRROR}"
+        fixup_sandbox "$R" "${LB_CONFIG_DIR}/archives" "${addons}"
+        # add some extra addons - for that we need to add the archives.
+        [ -d $R/etc/apt/sources.list.d ] || mkdir -p $R/etc/apt/sources.list.d
     fi
     echo "I: End Sandbox"
 }
 
 # TBD: should take this from a package-list
 SANDBOX_ROOT=/var/lib/sandbox
-INCLUDES="vyatta-op-shell,vyatta-config-shell,vyatta-bash,bash-completion,libnss-sss,openssh-client,vyatta-netconf-agent,vcli"
+INCLUDES="bash-completion,libnss-sss,openssh-client"
+ADDONS="vyatta-op-shell,vyatta-config-shell,vyatta-bash,vyatta-netconf-agent,vcli"
 
 echo "I: Runing Hook $0"
 check_user_isolation || { echo "Skipping user isolation"; exit 0; }
 hook_debootstrap install
-cli_sandbox $SANDBOX_ROOT $INCLUDES
+cli_sandbox $SANDBOX_ROOT "$INCLUDES" "$ADDONS"
 hook_debootstrap uninstall
 echo "I: End Hook $0"
