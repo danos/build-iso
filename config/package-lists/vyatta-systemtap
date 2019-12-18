@@ -1,0 +1,5 @@
+systemtap
+gcc
+linux-headers-amd64
+linux-compiler-gcc-8-x86
+linux-image-4.19.0-trunk-vyatta-amd64-dbg
