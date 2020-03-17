@@ -64,6 +64,7 @@ vyatta-op-set-system-v1-yang
 vyatta-op-set-v1-yang
 vyatta-op-show-bridge-spanning-tree-v1-yang
 vyatta-op-show-bridge-v1-yang
+vyatta-op-show-confirmed-commit-v1-yang
 vyatta-op-show-dataplane-v1-yang
 vyatta-op-show-file-v1-yang
 vyatta-op-show-interfaces-bridge-v1-yang
