@@ -114,6 +114,7 @@ vyatta-service-ptp-notification-v1-yang
 vyatta-service-ptp-v1-yang
 vyatta-service-twamp-v1-yang
 vyatta-system-dataplane-v1-yang
+vyatta-system-iommu-v1-yang
 vyatta-system-login-sssd-v1-yang
 vyatta-system-misc-siad-deviations-v1-yang
 vyatta-system-session-v1-yang
