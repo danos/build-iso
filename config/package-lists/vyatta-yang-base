@@ -7,7 +7,9 @@ vyatta-op-delete-v1-yang
 vyatta-op-generate-syslog-v1-yang
 vyatta-op-reset-system-login-v1-yang
 vyatta-op-reset-v1-yang
+vyatta-op-show-host-v1-yang
 vyatta-op-show-system-login-v1-yang
+vyatta-op-show-system-v1-yang
 vyatta-security-ssh-client-v1-yang
 vyatta-security-ssh-known-hosts-v1-yang
 vyatta-service-ssh-v1-yang
