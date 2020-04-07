@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Daily run of man-db.timer got disabled.
+# So we should at least run it once all packages got installed.
+mandb
