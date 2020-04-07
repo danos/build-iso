@@ -76,7 +76,6 @@ vyatta-op-show-interfaces-system-v1-yang
 vyatta-op-show-interfaces-tunnel-v1-yang
 vyatta-op-show-interfaces-vti-v1-yang
 vyatta-op-show-log-image-v1-yang
-vyatta-op-show-ptp-v1-yang
 vyatta-op-show-raid-v1-yang
 vyatta-op-show-switch-spanning-tree-v1-yang
 vyatta-op-show-switch-v1-yang
@@ -108,9 +107,6 @@ vyatta-service-nat-pool-v1-yang
 vyatta-service-nat-v1-yang
 vyatta-service-nat64-v1-yang
 vyatta-service-pcp-v1-yang
-vyatta-service-ptp-broadptp-v1-yang
-vyatta-service-ptp-notification-v1-yang
-vyatta-service-ptp-v1-yang
 vyatta-service-twamp-v1-yang
 vyatta-system-dataplane-v1-yang
 vyatta-system-iommu-v1-yang
