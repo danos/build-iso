@@ -1,3 +1,14 @@
+build-iso (2005.2) unstable; urgency=medium
+
+  [ Daniel Gollub ]
+  * Run mandb once during build-time
+
+  [ Nicholas Brown ]
+  * Remove vyatta-cpp-rate-limiter-v1-yang from vyatta-yang-common
+  * Remove ptp packages from vyatta-yang-common
+
+ -- Nicholas Brown <nick.brown@att.com>  Wed, 08 Apr 2020 18:02:41 +0100
+
 build-iso (2005.1) unstable; urgency=medium
 
   [ Nick Brown ]
