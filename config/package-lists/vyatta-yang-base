@@ -16,6 +16,7 @@ vyatta-system-acm-configd-v1-yang
 vyatta-system-acm-opd-v1-yang
 vyatta-system-boot-loader-v1-yang
 vyatta-system-boot-loader-reduced-v1-yang
+vyatta-system-journal-v1-yang
 vyatta-system-login-v1-yang
 vyatta-system-mgmt-v1-yang
 vyatta-system-misc-v1-yang
