@@ -5,6 +5,7 @@ binutils
 dialog
 dma
 dnsutils
+efivar
 gdisk
 ifupdown
 jitterentropy-rngd
