@@ -1,3 +1,16 @@
+build-iso (2005.4) unstable; urgency=medium
+
+  [ Nachiketa Prachanda ]
+  * add vyatta show op host package
+
+  [ James Wheatley ]
+  * Add efivar tool
+
+  [ Mike Manning ]
+  * Modify live username and hostname to remove vyatta branding
+
+ -- David Stapleton <dstaplet@mail.eng.vyatta.net>  Mon, 04 May 2020 16:59:26 +0100
+
 build-iso (2005.3) unstable; urgency=medium
 
   * Basic journal configuration should be part of all images.
