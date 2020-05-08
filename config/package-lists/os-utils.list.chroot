@@ -2,6 +2,7 @@ acpi-support-base
 acpid
 arp-scan
 binutils
+cloud-init
 dialog
 dma
 dnsutils
