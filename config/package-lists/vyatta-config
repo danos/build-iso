@@ -4,6 +4,7 @@ python3-vyatta-cfgclient
 ruby-vyatta-cfgclient
 vyatta-cfg
 vyatta-config-migrate
+vyatta-config-rollback-vci
 vyatta-curl-wrapper
 vyatta-restclient-perl
 vyatta-system
