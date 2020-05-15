@@ -1,5 +1,6 @@
 vyatta-log-journald-config
 vyatta-op-show-log-v1-yang
+vyatta-op-show-log-audit-v1-yang
 vyatta-op-show-log-auth-v1-yang
 vyatta-op-monitor-log-v1-yang
 vyatta-op-clear-log-v1-yang
