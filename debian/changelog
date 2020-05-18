@@ -1,3 +1,10 @@
+build-iso (2005.5) unstable; urgency=medium
+
+  [ Robert Shearman ]
+  * Add missing vyatta-op-monitor-dataplane-v1-yang (Fixes: VRVDR-51165)
+
+ -- Nicholas Brown <nick.brown@att.com>  Mon, 18 May 2020 13:17:02 +0100
+
 build-iso (2005.4) unstable; urgency=medium
 
   [ Nachiketa Prachanda ]
