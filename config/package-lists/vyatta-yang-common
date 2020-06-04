@@ -92,6 +92,7 @@ vyatta-policy-qos-v1-yang
 vyatta-policy-vlan-modify-v1-yang
 vyatta-resources-group-v1-yang
 vyatta-security-firewall-v1-yang
+vyatta-security-mac-limit-v1-yang
 vyatta-security-storm-control-v1-yang
 vyatta-security-vpn-ipsec-v1-yang
 vyatta-security-vpn-ipsec-vfp-v1-yang
