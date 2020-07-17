@@ -25,6 +25,7 @@ vyatta-op-add-system-v1-yang
 vyatta-op-add-v1-yang
 vyatta-op-clear-bridge-spanning-tree-v1-yang
 vyatta-op-clear-bridge-v1-yang
+vyatta-op-clear-dataplane-v1-yang
 vyatta-op-clear-interfaces-bridge-v1-yang
 vyatta-op-clear-interfaces-switch-v1-yang
 vyatta-op-clear-interfaces-v1-yang
