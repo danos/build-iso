@@ -1,3 +1,9 @@
+build-iso (2005.6) unstable; urgency=medium
+
+  * Add git repo checkout scriptlet
+
+ -- Eugene Tan <et486h@att.com>  Thu, 23 Jul 2020 16:53:29 -0700
+
 build-iso (2005.5) unstable; urgency=medium
 
   [ Robert Shearman ]
