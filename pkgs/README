@@ -1,0 +1,15 @@
+# cd pkgs
+project="Vyatta:Shipping:2005"
+# project="DANOS:Shipping:2005"
+for package in `osc list $project`
+do
+  url=`osc cat $project $package _service | fgrep 'param name="url"' | sed -e 's/.*url\">//' -e 's/<\/param>//'`
+  branch=`osc cat $project $package _service | fgrep 'param name="revision"' | sed -e 's/.*revision\">//' -e 's/<\/param>//' -e 's/origin\///'`
+  repo=`osc cat $project $package _service | fgrep 'param name="url"' | sed -e 's/.*url\">//' -e 's/<\/param>//' | cut -d'/' -f5 | cut -d'.' -f1`
+  [ -z "$branch" ] && branch=master
+  git clone "$url"
+  
+   pushd "$repo"
+   git checkout "$branch"
+   popd
+done
