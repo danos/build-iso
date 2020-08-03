@@ -29,6 +29,7 @@ vyatta-op-clear-dataplane-v1-yang
 vyatta-op-clear-interfaces-bridge-v1-yang
 vyatta-op-clear-interfaces-switch-v1-yang
 vyatta-op-clear-interfaces-v1-yang
+vyatta-op-clear-interfaces-vti-v1-yang
 vyatta-op-clone-system-image-v1-yang
 vyatta-op-clone-system-v1-yang
 vyatta-op-clone-v1-yang
@@ -46,6 +47,7 @@ vyatta-op-monitor-dataplane-v1-yang
 vyatta-op-monitor-interfaces-v1-yang
 vyatta-op-monitor-interfaces-dataplane-v1-yang
 vyatta-op-monitor-interfaces-dataplane-traffic-v1-yang
+vyatta-op-monitor-interfaces-vti-v1-yang
 vyatta-op-ping-v1-yang
 vyatta-op-policy-pbr-v1-yang
 vyatta-op-policy-qos-v1-yang
