@@ -85,7 +85,7 @@ vyatta-op-show-raid-v1-yang
 vyatta-op-show-switch-spanning-tree-v1-yang
 vyatta-op-show-switch-v1-yang
 vyatta-op-show-system-image-v1-yang
-vyatta-op-show-system-storage-v1.yang
+vyatta-op-show-system-storage-v1-yang
 vyatta-op-show-tacplus-v1-yang
 vyatta-op-storm-control-v1-yang
 vyatta-op-system-session-v1-yang
@@ -120,7 +120,7 @@ vyatta-system-dataplane-v1-yang
 vyatta-system-iommu-v1-yang
 vyatta-system-login-sssd-v1-yang
 vyatta-system-session-v1-yang
-vyatta-system-storage-v1.yang
+vyatta-system-storage-v1-yang
 vyatta-system-tacplus-v1-yang
 vyatta-xconnect-v1-yang
 vyatta-zone-based-firewall-feature
