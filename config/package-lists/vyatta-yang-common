@@ -112,7 +112,6 @@ vyatta-service-twamp-v1-yang
 vyatta-system-dataplane-v1-yang
 vyatta-system-iommu-v1-yang
 vyatta-system-login-sssd-v1-yang
-vyatta-system-misc-siad-deviations-v1-yang
 vyatta-system-session-v1-yang
 vyatta-system-tacplus-v1-yang
 vyatta-xconnect-v1-yang
