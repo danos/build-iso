@@ -54,6 +54,7 @@ vyatta-op-policy-qos-v1-yang
 vyatta-op-rename-system-image-v1-yang
 vyatta-op-rename-system-v1-yang
 vyatta-op-rename-v1-yang
+vyatta-op-reset-tacplus-v1-yang
 vyatta-op-resources-group-v1-yang
 vyatta-op-security-firewall-v1-yang
 vyatta-op-service-dns-v1-yang
@@ -84,6 +85,7 @@ vyatta-op-show-raid-v1-yang
 vyatta-op-show-switch-spanning-tree-v1-yang
 vyatta-op-show-switch-v1-yang
 vyatta-op-show-system-image-v1-yang
+vyatta-op-show-tacplus-v1-yang
 vyatta-op-storm-control-v1-yang
 vyatta-op-system-session-v1-yang
 vyatta-op-traceroute-v1-yang
