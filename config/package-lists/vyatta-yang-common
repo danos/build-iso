@@ -23,6 +23,7 @@ vyatta-ipv6-rtradv-v1-yang
 vyatta-op-add-system-image-v1-yang
 vyatta-op-add-system-v1-yang
 vyatta-op-add-v1-yang
+vyatta-op-clear-block-device-v1-yang
 vyatta-op-clear-bridge-spanning-tree-v1-yang
 vyatta-op-clear-bridge-v1-yang
 vyatta-op-clear-dataplane-v1-yang
