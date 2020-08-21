@@ -4,6 +4,7 @@ vyatta-dhcpv6-client-v1-yang
 vyatta-interfaces-backplane-v1-yang
 vyatta-interfaces-bridge-v1-yang
 vyatta-interfaces-dataplane-deviation-ufi-apollo-ncp1-1-v1-yang
+vyatta-interfaces-dataplane-ethernet-info-v1-yang
 vyatta-interfaces-dataplane-speed-deviations-siad-v1-yang
 vyatta-interfaces-dataplane-switch-v1-yang
 vyatta-interfaces-dataplane-transceiver-v1-yang
