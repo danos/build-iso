@@ -16,6 +16,7 @@ vyatta-op-show-ip-ipv6-route-frr-v1-yang
 vyatta-op-show-ip-ipv6-route-forward-v1-yang
 vyatta-op-show-ip-ipv6-route-forward-routing-instance-v1-yang
 vyatta-op-show-monitoring-protocols-frr-v1-yang
+vyatta-policy-route-deviation-danos-v1-yang
 vyatta-policy-route-v1-yang
 vyatta-protocols-frr-bgp-v1-yang
 vyatta-protocols-frr-bgp-routing-instance-v1-yang
