@@ -1,3 +1,10 @@
+build-iso (2005.7) unstable; urgency=medium
+
+  [ Paul Atkins ]
+  * remove vyatta-system-misc-siad-deviations-v1-yang from iso
+
+ -- Colin Docherty <colin.docherty@att.com>  Thu, 27 Aug 2020 09:12:01 +0100
+
 build-iso (2005.6) unstable; urgency=medium
 
   * Add git repo checkout scriptlet
