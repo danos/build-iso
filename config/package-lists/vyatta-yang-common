@@ -1,4 +1,5 @@
 vyatta-bridge-static-fdb-v1-yang
+vyatta-dataplane-stats-npf-v1-yang
 vyatta-dhcp-client-v1-yang
 vyatta-dhcpv6-client-v1-yang
 vyatta-interfaces-backplane-v1-yang
