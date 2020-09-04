@@ -11,3 +11,12 @@ sed -i "s/^# en_US/en_US/" /etc/locale.gen
 
 echo I: Regenerate locales
 /usr/sbin/locale-gen
+
+sandbox=var/lib/sandbox
+[ -d "$sandbox" ] || exit 0
+echo I: Setup locales in sandbox chroot $sandbox
+for f in etc/default/locale /etc/locale.gen; do
+	cp -a $f $sandbox/$f
+done
+echo I: Regenarate locales in sandbox
+/usr/sbin/chroot $sandbox /usr/sbin/locale-gen
