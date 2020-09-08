@@ -1,3 +1,14 @@
+build-iso (2009.1) unstable; urgency=medium
+
+  [ Ian Wilson ]
+  * vyatta-dataplane-stats-npf-v1-yang added to vyatta-yang-common
+
+  [ Nachiketa Prachanda ]
+  * hooks: add locales package in sandbox
+  * hooks: setup locales in sandbox chroot
+
+ -- Colin Docherty <colin.docherty@att.com>  Tue, 08 Sep 2020 14:45:14 +0100
+
 build-iso (2009) unstable; urgency=medium
 
   [ Nick Brown ]
