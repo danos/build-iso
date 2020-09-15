@@ -38,6 +38,7 @@ vyatta-op-clone-system-v1-yang
 vyatta-op-clone-v1-yang
 vyatta-op-copy-file-v1-yang
 vyatta-op-copy-v1-yang
+vyatta-op-dataplane-session-v1-yang
 vyatta-op-delete-file-v1-yang
 vyatta-op-delete-system-image-v1-yang
 vyatta-op-delete-system-v1-yang
