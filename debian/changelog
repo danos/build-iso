@@ -1,3 +1,132 @@
+build-iso (2010) unstable; urgency=medium
+
+  [ Nick Brown ]
+  * correctly tee the command and return status to the build.log
+
+  [ John Southworth ]
+  * Add dependency on xz-utils
+
+  [ Nicholas Brown ]
+  * add some package lists for negative package testing
+
+  [ James Wheatley ]
+  * Add IPsec remote access server feature
+
+  [ Philip Downey ]
+  * Add platform deviation support for interface speed restriction
+    (Fixes: VRVDR-44331)
+
+  [ Mark Gillott ]
+  * Add YANG for monitor interfaces (Fixes: VRVDR-49651)
+
+  [ Robert Shearman ]
+  * Add package for storm control config on bonding interfaces
+
+  [ Anthony Dempsey ]
+  * Add state and switch VRRP yang files
+
+  [ Srinivas Narayan ]
+  * Create a package list for systemtap
+
+  [ Duncan Eastoe ]
+  * Add show/reset login op YANG module packages
+
+  [ Charles (Chas) Williams ]
+  * Include SIAD specific deviations for vyatta-system-misc
+    (Bugfix: VRVDR-49991)
+
+  [ Paul Carson ]
+  * Include show system confirmed-commit (Closes: VRVDR-49960)
+
+  [ James Wheatley ]
+  * Add vyatta-system-iommu-v1-yang to package list (Fixes: VRVDR-50431)
+
+  [ William Ivory ]
+  * Restore missing deprecated YANG for logging commands
+
+  [ Daniel Gollub ]
+  * Run mandb once during build-time
+
+  [ Nicholas Brown ]
+  * Remove vyatta-cpp-rate-limiter-v1-yang from vyatta-yang-common
+  * Remove ptp packages from vyatta-yang-common
+  * Basic journal configuration should be part of all images.
+    (Fixes: VRVDR-50689)
+
+  [ James Wheatley ]
+  * Add efivar tool
+
+  [ Nachiketa Prachanda ]
+  * add vyatta show op host package
+
+  [ Mike Manning ]
+  * Modify live username and hostname to remove vyatta branding
+
+  [ Nicholas Brown ]
+  * Add new logging yang packages (Fixes: VRVDR-50701, VRVDR-32201)
+
+  [ John Southworth ]
+  * Add cloud-init to DANOS iso builds
+
+  [ Nicholas Brown ]
+  * Add 'show log audit' yang package to image
+
+  [ Paul Carson ]
+  * Add Netconf rollback packages to iso (Closes: VRVDR-50717)
+
+  [ Robert Shearman ]
+  * Add missing vyatta-op-monitor-dataplane-v1-yang (Fixes: VRVDR-51165)
+
+  [ Paul Aitken ]
+  * Add nDPI yang
+  * Add yang for user-defined applications
+  * Import vyatta-yang-dpi
+  * Import vyatta-no-dpi
+
+  [ Thomas Kiely ]
+  * Add missing MAC limit yang.
+
+  [ Ian Wilson ]
+  * Added vyatta-op-clear-dataplane-v1-yang to package lists
+
+  [ Daniel Gollub ]
+  * Introduce VTI op yang packages
+
+  [ Paul Atkins ]
+  * remove vyatta-system-misc-siad-deviations-v1-yang from iso
+
+  [ Shweta Choudaha ]
+  * portmonitor:Add yang deviation package for dnx
+
+  [ Duncan Eastoe ]
+  * vyatta-yang-common: Add TACACS+ op YANG pkgs
+
+  [ Sameer Agrawal ]
+  * Add vyatta-system-storage-v1.yang, vyatta-op-show-system-storage-v1.yang.
+  * Add vyatta-system-storage-v1.yang, vyatta-op-show-system-storage-v1.yang.
+  * New yang file to clear unused blocks for the block-device. VRVDR-28443
+
+  [ bs775m ]
+  * build-iso :add pause feature packages.
+
+  [ Anthony Dempsey ]
+  * Include VRRP op mode yang
+
+  [ Duncan Eastoe ]
+  * Add vyatta-policy-route-deviation-danos-v1-yang
+
+  [ Ian Wilson ]
+  * vyatta-dataplane-stats-npf-v1-yang added to vyatta-yang-common
+
+  [ Nachiketa Prachanda ]
+  * hooks: add locales package in sandbox
+  * hooks: setup locales in sandbox chroot
+
+  [ Ian Wilson ]
+  * Added vyatta-op-dataplane-session-v1-yang to package-lists
+
+ -- Colin Docherty <colin.docherty@att.com>  Tue, 22 Sep 2020 10:45:46 +0100
+
 build-iso (2005) unstable; urgency=medium
 
  * DANOS Import master
