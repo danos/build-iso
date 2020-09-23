@@ -1,4 +1,5 @@
 vyatta-interfaces-tunnel-transport-routing-instance-v1-yang
+vyatta-op-add-system-image-routing-instance-v1-yang
 vyatta-op-ping-routing-instance-v1-yang
 vyatta-op-routing-instance-v1-yang
 vyatta-op-service-dns-routing-instance-v1-yang
