@@ -60,7 +60,7 @@ ISO_VOLUME=$(get_prjconf_parameter _vyatta_version_id)
 lb config noauto \
     --apt apt \
     --apt-indices false \
-    --apt-options "--yes -o Acquire::Check-Valid-Until=false" \
+    --apt-options "--yes --force-yes -o Acquire::Check-Valid-Until=false" \
     --apt-recommends false \
     --apt-source-archives false \
     --backports false \
