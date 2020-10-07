@@ -24,27 +24,27 @@ check_user_isolation()
 	[ -n "${VER}" ] || return 1
 }
 
-# Install debootstrap - at this stage we still should have the sources.list pointing
+# Install mmdebstrap - at this stage we still should have the sources.list pointing
 # to LB repos
 delete_bootstrap='no'
-hook_debootstrap()
+hook_mmdebstrap()
 {
 	if [ "${1}" = install ]; then
-		[ ! -x /usr/sbin/debootstrap ] || return 0
+		[ ! -x /usr/bin/mmdebstrap ] || return 0
 		case "${LB_APT}" in
 			apt|apt-get)
 				# shellcheck disable=SC2086
-				apt-get ${APT_OPTIONS} install debootstrap
+				apt-get ${APT_OPTIONS} install mmdebstrap
 				;;
 			aptitude)
 				# shellcheck disable=SC2086
-				aptitude ${APTITUDE_OPTIONS} install debootstrap
+				aptitude ${APTITUDE_OPTIONS} install mmdebstrap
 				;;
 		esac
 		delete_bootstrap=yes
 	else
 		[ "${delete_bootstrap}" = 'yes' ] || return 0
-		apt-get -y purge debootstrap 
+		apt-get -y purge mmdebstrap 
 	fi
 }
 
@@ -53,26 +53,39 @@ cli_sandbox()
     # Get Architectures for the bootstrap.
     local ARCH
     local DIST
-    local MIRROR
 
     ARCH="$(get_lb_cfg Architecture)"
     DIST="$(get_lb_cfg Distribution)"
-    MIRROR="$(get_lb_cfg Mirror-Bootstrap)"
 
     local R=${1}
     local includes="${2}"
     
-    local opts="--arch=${ARCH} --no-check-gpg --variant=minbase"
+    local opts="--arch=${ARCH} --variant=minbase"
     if [ -n "${includes}" ]; then
 	    opts="${opts} --include=${includes}"
     fi
+
+    # shellcheck disable=SC2016
+    local ess_hook='if [ -d /.build.binaries ]; then mkdir "$1/.build.binaries"; mount --bind /.build.binaries "$1/.build.binaries"; fi'
+    # shellcheck disable=SC2016
+    local cus_hook='if [ -d "$1/.build.binaries" ]; then umount "$1/.build.binaries"; rmdir "$1/.build.binaries"; fi'
+
+    # mmdebstrap trips up if there is no resolv.conf
+    if [ ! -e /etc/resolv.conf ]; then
+        touch /etc/resolv.conf
+    fi
+
+    # create an empty file to avoid an error when dumping the sources
+    touch /etc/apt/sources.list.d/dummy
     
-    echo "I: Creating sandbox in $R arch=$ARCH MIRROR=${MIRROR}"
+    echo "I: Creating sandbox in $R arch=$ARCH"
     mkdir -p config/include.chroot/cli-sandbox
-    if [ -x /usr/sbin/debootstrap ]; then
+    if [ -x /usr/bin/mmdebstrap ]; then
 	echo "I: bootstraping sandbox"
 	# shellcheck disable=SC2086
-       	debootstrap ${opts} "${DIST}" "${R}" "${MIRROR}"
+       	cat /etc/apt/sources.list /etc/apt/sources.list.d/* \
+           | sed 's/file:/[trusted=yes] copy:/g' \
+           | mmdebstrap --essential-hook="${ess_hook}" --customize-hook="${cus_hook}" ${opts} "${DIST}" "${R}" -
        	# Now clean up cli-sandbox
        	chroot "$R" apt-get clean
     fi
@@ -85,7 +98,7 @@ INCLUDES="vyatta-op-shell,vyatta-config-shell,vyatta-bash,bash-completion,libnss
 
 echo "I: Runing Hook $0"
 check_user_isolation || { echo "Skipping user isolation"; exit 0; }
-hook_debootstrap install
+hook_mmdebstrap install
 cli_sandbox $SANDBOX_ROOT $INCLUDES
-hook_debootstrap uninstall
+hook_mmdebstrap uninstall
 echo "I: End Hook $0"
