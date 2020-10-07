@@ -58,7 +58,6 @@ cli_sandbox()
     ARCH="$(get_lb_cfg Architecture)"
     DIST="$(get_lb_cfg Distribution)"
     MIRROR="$(get_lb_cfg Mirror-Bootstrap)"
-    local excludes="initramfs-tools"
 
     local R=${1}
     local includes="${2}"
@@ -66,9 +65,6 @@ cli_sandbox()
     local opts="--arch=${ARCH} --no-check-gpg --variant=minbase"
     if [ -n "${includes}" ]; then
 	    opts="${opts} --include=${includes}"
-    fi
-    if [ -n "${excludes}" ]; then
-	    opts="${opts} --exclude=${excludes}"
     fi
     
     echo "I: Creating sandbox in $R arch=$ARCH MIRROR=${MIRROR}"
