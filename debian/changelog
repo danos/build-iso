@@ -1,3 +1,11 @@
+build-iso (2009.2) unstable; urgency=medium
+
+  [ Duncan Eastoe ]
+  * vyatta-routing-instance: Add python3-vrfmanager
+  * vyatta-yang-protocols-frr: Include IS-IS packages
+
+ -- Colin Docherty <colin.docherty@att.com>  Fri, 09 Oct 2020 17:09:13 +0100
+
 build-iso (2009.1) unstable; urgency=medium
 
   [ Ian Wilson ]
