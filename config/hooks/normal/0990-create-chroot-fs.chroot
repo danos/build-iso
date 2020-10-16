@@ -89,6 +89,7 @@ cli_sandbox()
        	# Now clean up cli-sandbox
        	chroot "$R" apt-get clean
     fi
+    rm -f /etc/apt/sources.list.d/dummy
     echo "I: End Sandbox"
 }
 
