@@ -17,6 +17,8 @@ vyatta-interfaces-policy-v1-yang
 vyatta-interfaces-switch-v1-yang
 vyatta-interfaces-switch-vif-firewall-v1-yang
 vyatta-interfaces-switch-vif-policy-v1-yang
+vyatta-interfaces-switch-vif-dhcp-client-v1-yang
+vyatta-interfaces-switch-vif-dhcpv6-client-v1-yang
 vyatta-interfaces-tcp-mss-v1-yang
 vyatta-interfaces-tunnel-deviations-siad-v1-yang
 vyatta-interfaces-vfp-unnumbered-v1-yang
