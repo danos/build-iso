@@ -95,7 +95,7 @@ cli_sandbox()
 
 # TBD: should take this from a package-list
 SANDBOX_ROOT=/var/lib/sandbox
-INCLUDES="vyatta-op-shell,vyatta-config-shell,vyatta-bash,bash-completion,libnss-sss,openssh-client,vyatta-netconf-agent,vcli,locales"
+INCLUDES="vyatta-op-shell,vyatta-config-shell,vyatta-bash,bash-completion,openssh-client,vyatta-netconf-agent,vcli,locales"
 
 echo "I: Runing Hook $0"
 check_user_isolation || { echo "Skipping user isolation"; exit 0; }
