@@ -25,5 +25,6 @@ vyatta-system-mgmt-routing-instance-v1-yang
 vyatta-system-network-routing-instance-v1-yang
 vyatta-system-session-routing-instance-v1-yang
 vyatta-system-syslog-routing-instance-v1-yang
+vyatta-system-syslog-enhanced-routing-instance-v1-yang
 vyatta-system-tacplus-routing-instance-v1-yang
 vyatta-system-time-routing-instance-v1-yang

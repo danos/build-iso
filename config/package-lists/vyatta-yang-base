@@ -5,6 +5,7 @@ vyatta-image-v1-yang
 vyatta-op-config-v1-yang
 vyatta-op-delete-v1-yang
 vyatta-op-generate-syslog-v1-yang
+vyatta-system-syslog-enhanced-v1-yang
 vyatta-op-reset-system-login-v1-yang
 vyatta-op-reset-v1-yang
 vyatta-op-show-host-v1-yang
