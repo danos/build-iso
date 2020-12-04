@@ -2,6 +2,7 @@ vyatta-bridge-static-fdb-v1-yang
 vyatta-dataplane-stats-npf-v1-yang
 vyatta-dhcp-client-v1-yang
 vyatta-dhcpv6-client-v1-yang
+vyatta-interfaces-backplane-deviation-s9500-30xs-v1-yang
 vyatta-interfaces-backplane-v1-yang
 vyatta-interfaces-bridge-v1-yang
 vyatta-interfaces-dataplane-deviation-ufi-apollo-ncp1-1-v1-yang
