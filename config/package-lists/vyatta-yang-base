@@ -25,5 +25,6 @@ vyatta-system-misc-v1-yang
 vyatta-system-network-v1-yang
 vyatta-system-package-v1-yang
 vyatta-system-syslog-v1-yang
+vyatta-system-syslog-enhanced-v1-yang
 vyatta-system-time-v1-yang
 yang-utils
