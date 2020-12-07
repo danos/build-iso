@@ -1,0 +1,73 @@
+#!/usr/bin/python3
+
+import grp
+import os
+import sys
+
+SANDBOX_ROOT = '/var/lib/sandbox'
+
+try:
+    from vyatta import sandbox
+except ImportError:
+    if os.path.exists(SANDBOX_ROOT):
+        print("E: no sandbox module, but chroot exists", file=sys.stderr)
+        sys.exit(1)
+    else:
+        sys.exit(0)
+
+class AdjustGidException(Exception):
+    pass
+
+def adjust_gids(group_path, ref_group_path):
+    """
+    Ensures consistent GIDs in groups which appear in both databases.
+
+    group_path is the path to the group database which should be adjusted.
+    ref_group_path is the path to the group database which should be
+    considered the source of truth.
+
+    group_path will be updated to ensure the GIDs of common groups match
+    those defined in ref_group_path.
+
+    AdjustGidException is raised if a group is present in group_path but
+    not in ref_group_path.
+    """
+    with open(ref_group_path, 'r') as groupf:
+        ref_groups = {g.gr_name : g.gr_gid
+                      for g in sandbox.parse_group_database(groupf)}
+
+    with open(group_path, 'r+') as groupf:
+        chroot_groups = list(sandbox.parse_group_database(groupf))
+        groupf.seek(0)
+        for group in chroot_groups:
+            host_gid = ref_groups.get(group.gr_name)
+
+            # For sanity and to ensure consistency between the reference
+            # and chroot databases, we assume that the users created
+            # in the chroot database are a subset of those in the reference
+            # database.
+            # So, fail hard if this assumption breaks - it will need special
+            # handling.
+            if host_gid is None:
+                raise AdjustGidException(
+                    "Group {} does not exist in reference database {}".format(
+                        group.gr_name, ref_group_path))
+
+            if group.gr_gid != host_gid:
+                print("I: {} group ID: {} --> {}".format(
+                    group.gr_name, group.gr_gid, host_gid))
+                group = list(group)
+                group[2] = host_gid
+                group = grp.struct_group(group)
+
+            print(sandbox.format_group_database_entry(group), file=groupf)
+
+if __name__ == '__main__':
+    print("I: Running Hook " + sys.argv[0])
+
+    if os.path.isdir(SANDBOX_ROOT):
+        adjust_gids(SANDBOX_ROOT + '/etc/group', '/etc/group')
+    else:
+        print("I: nothing to do")
+
+    print("I: End Hook " + sys.argv[0])
