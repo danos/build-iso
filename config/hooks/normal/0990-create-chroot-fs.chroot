@@ -45,6 +45,7 @@ hook_mmdebstrap()
 	else
 		[ "${delete_bootstrap}" = 'yes' ] || return 0
 		apt-get -y purge mmdebstrap 
+		dpkg --purge perl-doc || true
 	fi
 }
 
