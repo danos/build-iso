@@ -20,7 +20,6 @@ vyatta-service-snmp-routing-instance-v1-yang
 vyatta-service-ssh-routing-instance-v1-yang
 vyatta-service-telnet-routing-instance-v1-yang
 vyatta-service-twamp-routing-instance-v1-yang
-vyatta-system-login-radius-routing-instance-v1-yang
 vyatta-system-mgmt-routing-instance-v1-yang
 vyatta-system-network-routing-instance-v1-yang
 vyatta-system-session-routing-instance-v1-yang
