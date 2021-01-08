@@ -57,6 +57,12 @@ ISO_APPLICATION=$(get_prjconf_parameter _vyatta_pretty_name)
 ISO_PUBLISHER=$(get_prjconf_parameter _vyatta_name)
 ISO_VOLUME=$(get_prjconf_parameter _vyatta_version_id)
 
+ONIE=$(get_prjconf_parameter _onie)
+if [ "$ONIE" != "true" ] && [ "$ONIE" != "false" ]; then
+    echo "Unknown _onie value '$ONIE', using 'false'"
+    ONIE="false"
+fi
+
 lb config noauto \
     --apt apt \
     --apt-indices false \
@@ -86,6 +92,6 @@ lb config noauto \
     --source false \
     --updates false \
     --verbose \
-    --onie true \
+    --onie "${ONIE}" \
     --onie-kernel-cmdline "systemd.show_status=1 net.ifnames=1 vyatta-autoinstall" \
     "${@}"
