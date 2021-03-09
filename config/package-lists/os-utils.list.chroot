@@ -14,7 +14,6 @@ libcap2-bin
 libio-socket-ssl-perl
 lshw
 rng-tools5
-ruby
 systemd-coredump
 udev
 usbutils
