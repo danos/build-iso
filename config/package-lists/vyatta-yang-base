@@ -6,6 +6,7 @@ vyatta-op-config-v1-yang
 vyatta-op-delete-v1-yang
 vyatta-op-generate-syslog-v1-yang
 vyatta-system-syslog-enhanced-v1-yang
+vyatta-op-crash-dump-v1-yang
 vyatta-op-reset-system-login-v1-yang
 vyatta-op-reset-v1-yang
 vyatta-op-show-host-v1-yang
@@ -20,6 +21,7 @@ vyatta-system-acm-opd-v1-yang
 vyatta-system-boot-loader-v1-yang
 vyatta-system-boot-loader-reduced-v1-yang
 vyatta-system-journal-v1-yang
+vyatta-system-crash-dump-v1-yang
 vyatta-system-login-v1-yang
 vyatta-system-mgmt-v1-yang
 vyatta-system-misc-v1-yang
