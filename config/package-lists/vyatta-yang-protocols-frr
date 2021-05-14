@@ -23,6 +23,8 @@ vyatta-protocols-frr-bgp-v1-yang
 vyatta-protocols-frr-bgp-routing-instance-v1-yang
 vyatta-protocols-frr-isis-v1-yang
 vyatta-protocols-frr-ldp-v1-yang
+vyatta-protocols-frr-next-hop-v1-yang
+vyatta-protocols-frr-next-hop-routing-instance-v1-yang
 vyatta-protocols-frr-ospf-v1-yang
 vyatta-protocols-frr-ospf-routing-instance-v1-yang
 vyatta-protocols-frr-ospfv3-v1-yang
