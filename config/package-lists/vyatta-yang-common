@@ -58,6 +58,7 @@ vyatta-op-monitor-interfaces-vti-v1-yang
 vyatta-op-ping-v1-yang
 vyatta-op-policy-pbr-v1-yang
 vyatta-op-policy-qos-v1-yang
+vyatta-op-reboot-v1-yang
 vyatta-op-rename-system-image-v1-yang
 vyatta-op-rename-system-v1-yang
 vyatta-op-rename-v1-yang
@@ -126,6 +127,7 @@ vyatta-service-twamp-v1-yang
 vyatta-system-dataplane-v1-yang
 vyatta-system-iommu-v1-yang
 vyatta-system-login-sssd-v1-yang
+vyatta-system-reboot-v1-yang
 vyatta-system-session-v1-yang
 vyatta-system-storage-v1-yang
 vyatta-system-tacplus-v1-yang
