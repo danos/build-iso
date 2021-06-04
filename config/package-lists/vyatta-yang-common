@@ -36,6 +36,9 @@ vyatta-op-clear-interfaces-bridge-v1-yang
 vyatta-op-clear-interfaces-switch-v1-yang
 vyatta-op-clear-interfaces-v1-yang
 vyatta-op-clear-interfaces-vti-v1-yang
+vyatta-op-clear-system-v1-yang
+vyatta-op-clear-system-ip-v1-yang
+vyatta-op-clear-system-ip-icmp-v1-yang
 vyatta-op-clone-system-image-v1-yang
 vyatta-op-clone-system-v1-yang
 vyatta-op-clone-v1-yang
@@ -94,6 +97,8 @@ vyatta-op-show-switch-spanning-tree-v1-yang
 vyatta-op-show-switch-v1-yang
 vyatta-op-show-system-image-v1-yang
 vyatta-op-show-system-storage-v1-yang
+vyatta-op-show-system-ip-v1-yang
+vyatta-op-show-system-ip-icmp-v1-yang
 vyatta-op-show-tacplus-v1-yang
 vyatta-op-storm-control-v1-yang
 vyatta-op-system-session-v1-yang
