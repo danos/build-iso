@@ -100,6 +100,7 @@ vyatta-op-show-system-image-v1-yang
 vyatta-op-show-system-storage-v1-yang
 vyatta-op-show-system-ip-v1-yang
 vyatta-op-show-system-ip-icmp-v1-yang
+vyatta-op-show-system-login-history-v1-yang
 vyatta-op-show-tacplus-v1-yang
 vyatta-op-start-gnss-v1-yang
 vyatta-op-stop-gnss-v1-yang
@@ -135,6 +136,7 @@ vyatta-service-pcp-v1-yang
 vyatta-service-twamp-v1-yang
 vyatta-system-dataplane-v1-yang
 vyatta-system-iommu-v1-yang
+vyatta-system-login-history-v1-yang
 vyatta-system-login-sssd-v1-yang
 vyatta-system-reboot-v1-yang
 vyatta-system-session-v1-yang
