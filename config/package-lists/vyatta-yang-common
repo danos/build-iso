@@ -82,6 +82,7 @@ vyatta-op-show-bridge-v1-yang
 vyatta-op-show-confirmed-commit-v1-yang
 vyatta-op-show-dataplane-v1-yang
 vyatta-op-show-file-v1-yang
+vyatta-op-show-gnss-v1-yang
 vyatta-op-show-interfaces-bridge-v1-yang
 vyatta-op-show-interfaces-dataplane-v1-yang
 vyatta-op-show-interfaces-erspan-v1-yang
@@ -100,6 +101,8 @@ vyatta-op-show-system-storage-v1-yang
 vyatta-op-show-system-ip-v1-yang
 vyatta-op-show-system-ip-icmp-v1-yang
 vyatta-op-show-tacplus-v1-yang
+vyatta-op-start-gnss-v1-yang
+vyatta-op-stop-gnss-v1-yang
 vyatta-op-storm-control-v1-yang
 vyatta-op-system-session-v1-yang
 vyatta-op-traceroute-v1-yang
@@ -120,6 +123,7 @@ vyatta-service-dhcp-server-v1-yang
 vyatta-service-dhcpv6-relay-v1-yang
 vyatta-service-dhcpv6-server-v1-yang
 vyatta-service-dns-v1-yang
+vyatta-service-gnss-v1-yang
 vyatta-service-https-v1-yang
 vyatta-service-lldp-v1-yang
 vyatta-service-nat-cgnat-v1-yang
