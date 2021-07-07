@@ -1,7 +1,5 @@
 #!/bin/sh
 
->/etc/pam_radius_auth.conf
-
 update_sysctl_conf ()
 {
     var=$1
