@@ -106,6 +106,7 @@ vyatta-op-start-gnss-v1-yang
 vyatta-op-stop-gnss-v1-yang
 vyatta-op-storm-control-v1-yang
 vyatta-op-system-session-v1-yang
+vyatta-op-system-sfp-v1-yang
 vyatta-op-traceroute-v1-yang
 vyatta-op-v1-yang
 vyatta-opd-v1-yang
@@ -140,6 +141,7 @@ vyatta-system-login-history-v1-yang
 vyatta-system-login-sssd-v1-yang
 vyatta-system-reboot-v1-yang
 vyatta-system-session-v1-yang
+vyatta-system-sfp-v1-yang
 vyatta-system-storage-v1-yang
 vyatta-system-tacplus-v1-yang
 vyatta-xconnect-v1-yang
