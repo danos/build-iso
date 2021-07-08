@@ -1,3 +1,58 @@
+build-iso (2109) unstable; urgency=medium
+
+  [ Brian Russell ]
+  * add policy filter to qos list
+
+  [ Duncan Eastoe ]
+  * 0990-create-chroot-fs.chroot: remove perl-doc
+  * Support toggling ONIE build via prjconf variable
+  * Remove vyatta-system-login-radius-routing-instance-v1-yang
+
+  [ Nicholas Brown ]
+  * update to ndpi 3.4
+  * Remove ruby vyatta-cfg bindings
+  * Remove Ruby from images
+
+  [ Srinivas Narayan ]
+  * Add package list with debug packages
+
+  [ Nicholas Brown ]
+  * Add vyatta-service-flow-monitoring-bonding-vif-v1-yang
+
+  [ Sharmila Podury ]
+  * Unable to renew password via ssh
+
+  [ James Wheatley ]
+  * Add FRR next hop YANG packages
+
+  [ Gavin Shearer ]
+  * Add Netflow vfp YANG package
+
+  [ Sameer Agrawal ]
+  * New yang files for reboot command. VRVDR-43333
+
+  [ Thomas Kiely ]
+  * Add yang for ICMP rate limiting feature
+
+  [ Srinivas Narayan ]
+  * Add vyatta-interfaces-system-v1.yang to image
+
+  [ Charles (Chas) Williams ]
+  * Include the GNSS YANG files (Bugfix: VRVDR-54881, VRVDR-54882, VRVDR-54883)
+
+  [ Sameer Agrawal ]
+  * New yang files for 'show login history' feature. VRVDR-52326
+
+  [ Nachiketa Prachanda ]
+  * Add kdump support
+
+  [ Daniel Gollub ]
+  * hooks: default_ssh hook is obsolete
+  * hooks: RADIUS system-user authentication is obsolete
+  * hooks: discontinue 08-sysconf for sysctls
+
+ -- Colin Docherty <colin.docherty@att.com>  Thu, 08 Jul 2021 14:44:57 +0100
+
 build-iso (2105) unstable; urgency=medium
 
   [ Nicholas Brown ]
