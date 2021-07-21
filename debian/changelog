@@ -1,3 +1,28 @@
+build-iso (2012.1) unstable; urgency=medium
+
+  [ Nicholas Brown ]
+  * Include yang for add system image routing instance support
+    (Closes: VRVDR-52953)
+
+  [ James Wheatley ]
+  * Add --force-yes to apt options
+  * Remove excludes from sandbox hook
+  * Switch sandbox hook to mmdebstrap
+
+  [ Duncan Eastoe ]
+  * vyatta-routing-instance: Add python3-vrfmanager
+  * vyatta-yang-protocols-frr: Include IS-IS packages
+  * sandbox: clean up /etc/sources.list.d/dummy
+  * Remove vyatta-system-login-radius-routing-instance-v1-yang
+
+  [ Nicholas Brown ]
+  * Add syslog-enhanced to same package lists as syslog
+
+  [ Charles (Chas) Williams ]
+  * Include the GNSS YANG files (Bugfix: VRVDR-54881, VRVDR-54882, VRVDR-54883)
+
+ -- William Ivory <william.ivory@intl.att.com>  Wed, 21 Jul 2021 14:41:22 +0100
+
 build-iso (2010) unstable; urgency=medium
 
   [ Nick Brown ]
