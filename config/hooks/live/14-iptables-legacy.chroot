@@ -10,3 +10,7 @@ if [ -x /usr/sbin/iptables-legacy ]
 then
     update-alternatives --quiet --set iptables /usr/sbin/iptables-legacy
 fi
+if [ -x /usr/sbin/ebtables-legacy ]
+then
+    update-alternatives --quiet --set ebtables /usr/sbin/ebtables-legacy
+fi
