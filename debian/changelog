@@ -1,3 +1,28 @@
+build-iso (2111) unstable; urgency=medium
+
+  [ Simon Barber ]
+  * Add system-sfp yang
+
+  [ ck407g ]
+  * YANG conversion of ARP operational commands
+
+  [ Cian O'Sullivan ]
+  * Add show monitoring dataplane command
+
+  [ Charles (Chas) Williams ]
+  * hooks: use legacy ebtables (Bugfix: VRVDR-55501)
+
+  [ Srinivas Narayan ]
+  * Include dataplane debug package with dependencies
+
+  [ Gavin Shearer ]
+  * Add Netflow tunnel and vti YANG packages
+
+  [ Nachiketa Prachanda ]
+  * add vyatta-storage-monitor-v1-yang
+
+ -- Colin Docherty <colin.docherty@intl.att.com>  Tue, 26 Oct 2021 01:11:36 -0700
+
 build-iso (2109) unstable; urgency=medium
 
   [ Brian Russell ]
